@@ -91,9 +91,9 @@ export function LeoRevitaSite() {
     return () => { active = false; };
   }, [bookingOpen, branchId, serviceId, date, staffId]);
 
-  const startBooking = (service?: Service) => {
+  const startBooking = (service?: Service, preferredBranchId?: string) => {
     const firstBranch = branches[0]?.id || '';
-    const nextBranch = branchId || firstBranch;
+    const nextBranch = preferredBranchId || branchId || firstBranch;
     const branchServices = services.filter((item) => !item.branchId || item.branchId === nextBranch);
     setBranchId(nextBranch);
     setServiceId(service && (!service.branchId || service.branchId === nextBranch) ? service.id : branchServices[0]?.id || '');
@@ -151,17 +151,17 @@ export function LeoRevitaSite() {
 
       <section className="hero" id="home">
         <div className="hero-copy">
-          <div className="eyebrow"><span /> THE LEO REVITA EXPERIENCE</div>
-          <h1>Feel good.<br /><em>Look</em> unforgettable.</h1>
-          <p className="hero-description">A little care. A fresh new look. A whole new kind of confidence. Come as you are, leave feeling like your most beautiful self.</p>
-          <div className="hero-actions"><button className="button button-red" onClick={() => startBooking()}>Book your glow-up <span>↗</span></button><a className="text-link" href="#services">Explore our services <span>↓</span></a></div>
-          <div className="hero-proof"><div className="proof-avatars"><span>♥</span><span>♥</span><span>♥</span></div><p><strong>For every kind of beautiful.</strong><br />A warm welcome for every Ka-Hamloy.</p></div>
+          <div className="eyebrow"><span /> THE ART OF BEAUTY, THE LEO REVITA WAY</div>
+          <h1>Beauty,<br /><em>beautifully</em> refined.</h1>
+          <p className="hero-description">Discover a more elevated salon experience at Leo Revita. From considered consultations to beautifully finished transformations, our team is here to bring out the confidence in every look.</p>
+          <div className="hero-actions"><button className="button button-red" onClick={() => startBooking()}>Reserve your appointment <span>↗</span></button><a className="text-link" href="#services">Discover our services <span>↓</span></a></div>
+          <div className="hero-proof"><div className="proof-seal">LR</div><p><strong>Thoughtful care. Beautiful results.</strong><br />A signature experience by Leo Revita Salon.</p></div>
         </div>
         <div className="hero-visual">
-          <div className="hero-photo hero-photo-main" role="img" aria-label="A stylist creating a beautiful hair transformation" />
-          <div className="hero-photo hero-photo-detail" role="img" aria-label="Beautiful glossy hair detail" />
-          <div className="hero-stamp"><span>THE</span><strong>HAMLOY<br />LOOK</strong><small>MADE WITH LOVE</small></div>
-          <div className="hero-caption"><span>01 / 03</span><strong>Everyday beauty, elevated.</strong></div>
+          <div className="hero-photo hero-photo-main"><img className="hero-portrait" src="/images/leo-revita-portrait.jpeg" alt="Leo Revita, the face behind the salon" /></div>
+          
+          <div className="hero-stamp"><span>THE LEO REVITA</span><strong>BEAUTY<br />SIGNATURE</strong><small>CONFIDENCE, REFINED</small></div>
+          <div className="hero-caption"><span>LEO REVITA</span><strong>Where your signature look begins.</strong></div>
         </div>
         <div className="hero-side-note">BEAUTY IS YOURS TO DEFINE — LEO REVITA SALON</div>
       </section>
