@@ -7,7 +7,7 @@ type Service = { id: string; name: string; description?: string; price: number; 
 type Staff = { id: string; firstName: string; lastName: string; position?: string };
 type Slot = { time: string; staffIds: string[] };
 type Availability = { slots: Slot[] };
-type SiteData = { organization?: { name?: string; phone?: string; address?: string }; website?: { hero?: { title?: string; description?: string }; branding?: { primaryColor?: string } } };
+type SiteData = { organization?: { name?: string; phone?: string; address?: string }; website?: { hero?: { title?: string; description?: string }; branding?: { primaryColor?: string; logoUrl?: string } } };
 
 const api = async <T,>(path: string, init?: RequestInit): Promise<T> => {
   const response = await fetch('/api/booking/' + path, {
@@ -139,8 +139,7 @@ export function LeoRevitaSite() {
     <main>
       <header className="site-header">
         <a className="brand" href="#home" aria-label="Leo Revita Salon home">
-          <span className="brand-mark">LR</span>
-          <span className="brand-copy"><strong>LEO REVITA</strong><small>SALON & BEAUTY</small></span>
+          {site?.website?.branding?.logoUrl ? <img className="cms-brand-logo" src={site.website.branding.logoUrl} alt="Leo Revita Hair Salon" /> : <><span className="brand-mark">LR</span><span className="brand-copy"><strong>LEO REVITA</strong><small>SALON & BEAUTY</small></span></>}
         </a>
         <nav className="desktop-nav" aria-label="Main navigation">
           <a href="#services">Our services</a><a href="#story">Our story</a><a href="#branches">Find a branch</a>
@@ -187,7 +186,7 @@ export function LeoRevitaSite() {
 
       <section className="closing-cta"><div className="closing-flower">✳</div><div className="eyebrow"><span /> YOUR MOMENT IS WAITING</div><h2>Ready for your<br /><em>next beautiful thing?</em></h2><p>Choose your branch, pick your service, and leave the rest to us.</p><button className="button button-light" onClick={() => startBooking()}>Book your appointment <span>↗</span></button></section>
 
-      <footer className="site-footer"><a className="brand brand-footer" href="#home"><span className="brand-mark">LR</span><span className="brand-copy"><strong>LEO REVITA</strong><small>SALON & BEAUTY</small></span></a><p>Beauty is yours to define. <strong>Basta Leo, Hamloy Kaayo.</strong></p><span>© {new Date().getFullYear()} Leo Revita Salon. All rights reserved.</span></footer>
+      <footer className="site-footer"><a className="brand brand-footer" href="#home">{site?.website?.branding?.logoUrl ? <img className="cms-brand-logo cms-brand-logo-footer" src={site.website.branding.logoUrl} alt="Leo Revita Hair Salon" /> : <><span className="brand-mark">LR</span><span className="brand-copy"><strong>LEO REVITA</strong><small>SALON & BEAUTY</small></span></>}</a><p>Beauty is yours to define. <strong>Basta Leo, Hamloy Kaayo.</strong></p><span>© {new Date().getFullYear()} Leo Revita Salon. All rights reserved.</span></footer>
 
       {bookingOpen && <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) closeBooking(); }}>
         <section className="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
