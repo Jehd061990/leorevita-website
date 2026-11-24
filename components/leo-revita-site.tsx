@@ -137,7 +137,6 @@ export function LeoRevitaSite() {
 
   return (
     <main>
-      <div className="announcement"><span className="announcement-dot" /> YOUR BEAUTY, YOUR CONFIDENCE <span className="announcement-divider">✦</span> BASTA LEO, HAMLOY KAAYO!</div>
       <header className="site-header">
         <a className="brand" href="#home" aria-label="Leo Revita Salon home">
           <span className="brand-mark">LR</span>
@@ -157,13 +156,7 @@ export function LeoRevitaSite() {
           <div className="hero-actions"><button className="button button-red" onClick={() => startBooking()}>Reserve your appointment <span>↗</span></button><a className="text-link" href="#services">Discover our services <span>↓</span></a></div>
           <div className="hero-proof"><div className="proof-seal">LR</div><p><strong>Thoughtful care. Beautiful results.</strong><br />A signature experience by Leo Revita Salon.</p></div>
         </div>
-        <div className="hero-visual">
-          <div className="hero-photo hero-photo-main"><img className="hero-portrait" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAd0TxiyTnGiDgtx7gkcB9r-KmGWeUBpZimlP-S2er3_ukMawcYvtndes&s=10" alt="Leo Revita, the face behind the salon" /></div>
-          
-          <div className="hero-stamp"><span>THE LEO REVITA</span><strong>BEAUTY<br />SIGNATURE</strong><small>CONFIDENCE, REFINED</small></div>
-          <div className="hero-caption"><span>LEO REVITA</span><strong>Where your signature look begins.</strong></div>
-        </div>
-        <div className="hero-side-note">BEAUTY IS YOURS TO DEFINE — LEO REVITA SALON</div>
+
       </section>
 
       <section className="marquee" aria-label="Salon specialties"><div>REBOND <i>✳</i> HAIR COLOR <i>✳</i> BALAYAGE <i>✳</i> BRAZILIAN TREATMENT <i>✳</i> HAIR SPA <i>✳</i> YOUR NEXT GLOW-UP <i>✳</i></div></section>
