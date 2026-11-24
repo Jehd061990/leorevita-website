@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 type RouteContext = { params: Promise<{ path: string[] }> };
 
 async function proxyBookingRequest(request: NextRequest, context: RouteContext) {
-  const apiBase = process.env.DOYBIZ_API_URL?.replace(/\\/+$/, '');
+  const apiBase = process.env.DOYBIZ_API_URL?.replace(/\/+$/, '');
   if (!apiBase) {
     return NextResponse.json({ success: false, message: 'DoyBiz booking is not configured yet.' }, { status: 503 });
   }
